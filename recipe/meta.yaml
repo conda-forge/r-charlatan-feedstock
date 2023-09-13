@@ -1,5 +1,4 @@
-{% set version = '0.5.0' %}
-
+{% set version = "0.5.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/charlatan_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/charlatan/charlatan_{{ version }}.tar.gz
-  sha256: 50023297999fe72a3cc118f8a285333d26cf9ebc7c37d4012ef8d3d1137a91a9
+  sha256: 479fa4c7e43d68ff6a6005091c46e846b0b1370a27107ad9a6dd62c076f603b9
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -24,13 +23,11 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
-
   host:
     - r-base
     - r-r6 >=2.2.0
     - r-tibble >=1.2
     - r-whisker
-
   run:
     - r-base
     - r-r6 >=2.2.0
@@ -46,9 +43,7 @@ about:
   home: https://docs.ropensci.org/charlatan/
   dev_url: https://github.com/ropensci/charlatan
   license: MIT
-  summary: Make fake data, supporting addresses, person names, dates, times, colors, coordinates,
-    currencies, digital object identifiers ('DOIs'), jobs, phone numbers, 'DNA' sequences,
-    doubles and integers from distributions and within a range.
+  summary: Make fake data, supporting addresses, person names, dates, times, colors, coordinates, currencies, digital object identifiers ('DOIs'), jobs, phone numbers, 'DNA' sequences, doubles and integers from distributions and within a range.
   license_family: MIT
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
@@ -60,7 +55,6 @@ extra:
     - thewchan
 
 # The original CRAN metadata for this package was:
-
 # Package: charlatan
 # Type: Package
 # Title: Make Fake Data
@@ -84,7 +78,6 @@ extra:
 # Maintainer: Scott Chamberlain <myrmecocystus+r@gmail.com>
 # Repository: CRAN
 # Date/Publication: 2022-08-18 12:00:09 UTC
-
 # See
 # https://docs.conda.io/projects/conda-build for
 # more information about meta.yaml
